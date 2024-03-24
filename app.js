@@ -5,7 +5,7 @@ const app = express()
 const methodOverride = require('method-override')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
-const MongoStore = require('connect-mongo').default
+const MongoStore = require('connect-mongo')
 
 const PORT = process.env.PORT || 5000
 const expressLayout = require('express-ejs-layouts')
@@ -29,7 +29,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
+      mongoUrl: 'mongodb+srv://jobilite2021:babatunde@cluster0.06ezsxy.mongodb.net/BLOG',
     }),
     //cookie: { maxAge: new Date ( Date.now() + (3600000) ) }
   })
