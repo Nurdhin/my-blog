@@ -5,7 +5,7 @@ const app = express()
 const methodOverride = require('method-override')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
-const MongoDBStore = require('connect-mongo')
+const MongoStore = require('connect-mongo')
 
 const PORT = process.env.PORT || 5000
 const expressLayout = require('express-ejs-layouts')
@@ -28,10 +28,8 @@ app.use(
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    store: MongoDBStore.create({
+    store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
-	    touchAfter: 24 * 60 * 60,
-      collection: 'session',
     }),
     //cookie: { maxAge: new Date ( Date.now() + (3600000) ) }
   })
