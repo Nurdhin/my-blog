@@ -30,7 +30,6 @@ app.use(
     saveUninitialized: true,
     store: MongoDBStore.create({
       mongoUrl: process.env.MONGODB_URI,
-      secret,
 	    touchAfter: 24 * 60 * 60,
       collection: 'session',
     }),
