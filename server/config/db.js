@@ -11,4 +11,3 @@ const connectDB = async () => {
 }
 
 module.exports = connectDB
-const connection = mongoose.createConnection(dbString)
