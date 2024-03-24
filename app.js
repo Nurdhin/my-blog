@@ -22,6 +22,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(methodOverride('_method'))
 
+
 app.use(
   session({
     secret: 'keyboard cat',
@@ -29,6 +30,7 @@ app.use(
     saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
+      collection: 'session',
     }),
     //cookie: { maxAge: new Date ( Date.now() + (3600000) ) }
   })
